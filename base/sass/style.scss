@@ -1,0 +1,23 @@
+@import "vars";
+body{
+  background-color: $bg_color;
+  margin: 0px !important;
+}
+#container{
+  max-width: 1920px;
+  margin: 0 auto;
+}
+#container > *{
+  background-color: lightblue;
+  color: white;
+}
+header{
+  height: 200px;
+  nav{
+    height: 49px;
+    width: 100%;
+    max-width: 1920px;
+    opacity: 0.63;
+	  background-color: rgba(214, 214, 214, 0.32);
+  }
+}
