@@ -8,9 +8,42 @@
   <body>
 <header>
   <div id="logo">
-    <img src="./images/logo.png" />
+    <img src="images/logo-theorem.png"
+		 srcset="images/logo-theorem@2x.png 2x,
+					 images/logo-theorem@3x.png 3x"
+		 class="logo-img">
   </div>
-  <nav>
-
-  </nav>
 </header>
+<nav>
+  <div class="lupa">
+    <label for="search_box"><img src="images/shape.svg"></label>
+  </div>
+  <div class="search">
+    <input type="text" name='search' placeholder='Search...' class="search_box" id="search_box">
+  </div>
+  <div class="filters">
+    <span class="separator"></span>
+    <select name="vertical" id="vertical" class="vertical">
+      <option value="" hidden disabled selected>Vertical</option>
+      <option value="1">cars</option>
+      <option value="2">celphones</option>
+    </select>
+    <select name="execution" id="execution" class="execution">
+      <option value="" hidden disabled selected>Execution</option>
+      <option value="1">Banner</option>
+      <option value="2">Expandable</option>
+    </select>
+    <select name="platform" id="platform" class="platform">
+      <option value="" hidden disabled selected>Platform</option>
+      <option value="1">DoubleClick</option>
+      <option value="2">Inskin</option>
+      <option value="3">PageSkin</option>
+    </select>
+    <select name="format" id="format" class="format">
+      <option value="" hidden disabled selected>Format</option>
+      <option value="1">Interstitial</option>
+      <option value="2">Expandable</option>
+      <option value="3">Floating</option>
+    </select>
+  </div>
+</nav>
