@@ -6,55 +6,11 @@
 <script src="./js/cement.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/vue"></script>
-<script>
-  $('#container').cement({
-    columns: 3,
-    columnMinWidth: 175,
-    horizontalGutter: 20,
-    verticalGutter:20
-  });
-</script>
 <script src="https://use.typekit.net/vzn7eem.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script>
-<script type="text/javascript">//<![CDATA[
-window.onload=function(){
-Vue.component('filter-data', {
-  template: ``,
-  props: ['title']
-})
-new Vue({
-  el: '#container',
-  data: {
-    newTodoText: '',
-    search:"",
-    todos: [
-    	'Take out the trash',
-      'Do the dishes',
-      'Mow the lawn'
-    ]
-  },
-  methods: {
-    abcd:function(){
-    	this.todosSmart.sort(function(a,b){
-      	return a > b;
-      });
-    }
-  },
-  computed:{
-  	todosSmart:function(){
-    	if(this.search === "" ){
-      	return this.todos;
-      }else{
-      	var search = this.search;
-      	return this.todos.filter(function(todo){
-        var reg = new RegExp(search, 'g');
-    			return reg.test(todo);
-    });
-      }
-
-    }
-  }
-})
-}//]]>
-
+<script>
+    try {
+        Typekit.load({
+            async: true
+        });
+    } catch (e) {}
 </script>

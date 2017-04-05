@@ -3,47 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <%- include('./styles') -%>
   </head>
-  <body>
-<header>
-  <div id="logo">
-    <img src="images/logo-theorem.png"
-		 srcset="images/logo-theorem@2x.png 2x,
-					 images/logo-theorem@3x.png 3x"
-		 class="logo-img">
-  </div>
-</header>
-<nav>
-  <div class="lupa">
-    <label for="search_box"><img src="images/shape.svg"></label>
-  </div>
-  <div class="search">
-    <input type="text" name='search' placeholder='Search...' class="search_box" id="search_box">
-  </div>
-  <div class="filters">
-    <span class="separator"></span>
-    <select name="vertical" id="vertical" class="vertical">
-      <option value="" hidden disabled selected>Vertical</option>
-      <option value="1">cars</option>
-      <option value="2">celphones</option>
-    </select>
-    <select name="execution" id="execution" class="execution">
-      <option value="" hidden disabled selected>Execution</option>
-      <option value="1">Banner</option>
-      <option value="2">Expandable</option>
-    </select>
-    <select name="platform" id="platform" class="platform">
-      <option value="" hidden disabled selected>Platform</option>
-      <option value="1">DoubleClick</option>
-      <option value="2">Inskin</option>
-      <option value="3">PageSkin</option>
-    </select>
-    <select name="format" id="format" class="format">
-      <option value="" hidden disabled selected>Format</option>
-      <option value="1">Interstitial</option>
-      <option value="2">Expandable</option>
-      <option value="3">Floating</option>
-    </select>
-  </div>
-</nav>
+  <body id="portfolio">
+    <header>
+      <div id="logo">
+        <img src="images/logo-theorem.png"
+    		 srcset="images/logo-theorem@2x.png 2x,
+    					 images/logo-theorem@3x.png 3x"
+    		 class="logo-img">
+      </div>
+      <div class="right">
+        <div class="login" id='login' data-toggle="modal" data-target="#loginModal">
+          <div style="width:100%;height: 100%;">
+            <div class="loginT">
+              <p>
+                Log in
+              </p>
+              <p>
+                Please login here
+              </p>
+            </div>
+            <span class="userimg">
+              <img src="images/user-image2.svg" >
+            </span>
+          </div>
+        </div>
+        <div class="menu">
+          <div class="dropdown">
+            <img src="images/lines-menu2.svg" data-toggle="dropdown" alt="">
+            <ul class="dropdown-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="capabilities1.html">Capabilities</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
