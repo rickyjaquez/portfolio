@@ -15,9 +15,12 @@ body {
 #projectCont > * {
     color: white;
 }
-#projects, #capabilities1{
-  float: left;
+
+#capabilities1,
+#projects {
+    float: left;
 }
+
 article {
     img {
         width: 100%;
@@ -266,6 +269,39 @@ nav {
             margin-left: 1%;
         }
     }
+}
+
+#projects {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1920px;
+    margin-bottom: 100px;
+}
+
+#projects.fixed {
+    margin-top: 330px;
+    min-height: 850px;
+}
+
+ul.dropdown-menu {
+    z-index: 3;
+}
+
+header.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background: white;
+    height: 120px;
+    padding-top: 20px;
+    transition: padding 0.5s;
+}
+
+nav.fixed {
+    z-index: 2;
+    position: fixed;
+    top: 82px;
+    transition: top 0.3s;
 }
 
 .headerBlue {
@@ -604,6 +640,60 @@ nav {
     right: 0;
     left: inherit;
 }
+//capabilities2
+
+.capabilities2__title {
+    font-family: Futura;
+    font-size: 80px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.28;
+    letter-spacing: -0.6px;
+    color: #ffa700;
+}
+
+.capabilities2__text {
+    width: 100%;
+    width: 460px;
+    min-height: 270px;
+    background-color: #06294a;
+    color: white;
+    z-index: 2;
+    padding: 30px;
+
+    p {
+        font-family: "futura-pt";
+        font-size: 18px;
+        font-weight: 100;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.67;
+        letter-spacing: -0px;
+        margin: 30px 0;
+    }
+
+    button {
+        width: 146px;
+        height: 37px;
+        border-radius: 14px;
+        border: solid 2px #ffffff;
+        text-transform: uppercase;
+        background-color: transparent;
+        font-family: futura;
+        font-size: 13px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 1.6px;
+        margin: 30px 0;
+    }
+}
+
+.capabilities2__img {
+    z-index: 1;
+}
 @media only screen and (max-width: 1200px) {
     .title h1 {
         font-family: Futura;
@@ -656,23 +746,25 @@ nav {
 
     .title {
         h1 {
-          margin: 0 auto;
-          font-size: 60px;
-          margin-left: 50%;
+            margin: 0 auto;
+            font-size: 60px;
+            margin-left: 50%;
         }
     }
 }
 @media only screen and (max-width: 768px) {
-  .title {
-      h1{
-      font-size: 40px;
-      width: 209px;
+    .title {
+        h1 {
+            font-size: 40px;
+            width: 209px;
+        }
     }
-  }
-  .paragraph{
-    width: 53%
-  }
-  .texthead{
-    margin-left: -1%;
-  }
+
+    .paragraph {
+        width: 53%;
+    }
+
+    .texthead {
+        margin-left: -1%;
+    }
 }

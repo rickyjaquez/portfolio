@@ -13,4 +13,23 @@
             async: true
         });
     } catch (e) {}
+
+    var stickyOffset = $('#projects').offset().top;
+    $(window).scroll(function(){
+      var sticky = $('header'),
+          scroll = $(window).scrollTop(),
+          pro= $("#projects")
+          nav= $("#projects > nav");
+
+      if (scroll >= stickyOffset){
+        sticky.addClass('fixed');
+        nav.addClass('fixed');
+        pro.addClass('fixed');
+      }else{
+         sticky.removeClass('fixed');
+         nav.removeClass('fixed');
+         pro.removeClass('fixed');
+       }
+    });
+
 </script>
