@@ -1,0 +1,297 @@
+
+<nav id="searchNav">
+  <div class="lupa">
+    <label for="search_box"><img src="images/shape.svg"></label>
+  </div>
+  <div class="search">
+    <input type="text" name='search' v-model="search" v-on:keyup="searchTesting" placeholder='Search...' class="search_box" id="search_box">
+  </div>
+  <div class="filters">
+    <span class="separator"></span>
+    <select name="vertical" id="vertical" v-model="vertical" v-on:change="searchTesting" class="vertical">
+      <option value="" hidden disabled selected>Vertical</option>
+      <option value="cars">cars</option>
+      <option value="celphones">celphones</option>
+    </select>
+    <select name="execution" id="execution" v-model="execution" v-on:change="searchTesting"  class="execution">
+      <option value="" hidden disabled selected>Execution</option>
+      <option value="banner">Banner</option>
+      <option value="expandable">Expandable</option>
+    </select>
+    <select name="platform" id="platform" v-model="platform" v-on:change="searchTesting" class="platform">
+      <option value="" hidden disabled selected>Platform</option>
+      <option value="doubleclick">DoubleClick</option>
+      <option value="inskin">Inskin</option>
+      <option value="pageskin">PageSkin</option>
+    </select>
+    <select name="format" id="format" v-model="format" v-on:change="searchTesting" class="format">
+      <option value="" hidden disabled selected>Format</option>
+      <option value="interstitial">Interstitial</option>
+      <option value="expandable">Expandable</option>
+      <option value="floating">Floating</option>
+    </select>
+  </div>
+  <div class="hideFilter">
+    <div class="dropdown">
+      <img src="images/sort.svg" data-toggle="dropdown" alt="">
+      <ul class="dropdown-menu">
+        <li>
+          <select name="vertical" id="vertical" v-model="vertical" v-on:change="searchTesting" class="vertical">
+            <option value="" hidden disabled selected>Vertical</option>
+            <option value="cars">cars</option>
+            <option value="celphones">celphones</option>
+          </select>
+        </li>
+        <li>
+          <select name="execution" id="execution" v-model="execution" v-on:change="searchTesting"  class="execution">
+            <option value="" hidden disabled selected>Execution</option>
+            <option value="banner">Banner</option>
+            <option value="expandable">Expandable</option>
+          </select>
+        </li>
+        <li>
+          <select name="platform" id="platform" v-model="platform" v-on:change="searchTesting" class="platform">
+            <option value="" hidden disabled selected>Platform</option>
+            <option value="doubleclick">DoubleClick</option>
+            <option value="inskin">Inskin</option>
+            <option value="pageskin">PageSkin</option>
+        </li>
+        </select>
+        <li>
+          <select name="format" id="format" v-model="format" v-on:change="searchTesting" class="format">
+            <option value="" hidden disabled selected>Format</option>
+            <option value="interstitial">Interstitial</option>
+            <option value="expandable">Expandable</option>
+            <option value="floating">Floating</option>
+        </li>
+        </select>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section id="projectCont">
+    <project v-for="project in projectsList" v-bind:project="project"></project>
+</section>
+<script>
+var stickyOffset = $('#projects').offset().top;
+$(window).scroll(function(){
+  var sticky = $('header'),
+      scroll = $(window).scrollTop(),
+      pro= $("#projects")
+      nav= $("#projects > nav");
+
+  if (scroll >= stickyOffset){
+    sticky.addClass('fixed');
+    nav.addClass('fixed');
+    pro.addClass('fixed');
+  }else{
+     sticky.removeClass('fixed');
+     nav.removeClass('fixed');
+     pro.removeClass('fixed');
+   }
+});
+</script>
+
+<script type="text/javascript">
+    //<![CDATA[
+    window.onload = function() {
+
+            Vue.component('project', {
+                template: `<article>
+                <a href="template.html?id=1">
+                          <img :src='project.image' />
+                          <div class="overlay">
+                            <div class="text">
+                              <div class="type">{{project.format}}</div>
+                              <div class="project_name">{{project.title}}</div>
+                              <div class="project_description">{{project.description}}</div>
+                            </div>
+                          </div>
+                          </a>
+                        </article>`,
+                props: ['project']
+            });
+            var searchNav = new Vue({
+                el: "#searchNav",
+                data: {
+                    search: "",
+                    vertical: "",
+                    execution: "",
+                    platform: "",
+                    format: ""
+                },
+                methods: {
+                    searchTesting: function() {
+                        projectController.search = this.search;
+                        projectController.vertical = this.vertical;
+                        projectController.execution = this.execution;
+                        projectController.platform = this.platform;
+                        projectController.format = this.format;
+                    }
+                }
+            });
+            var projectController = new Vue({
+                el: '#projectCont',
+                mounted: function() {
+                    this.cementStart();
+
+                },
+                updated: function() {
+                    // this.cementStart();
+                },
+                created: function() {
+                    // this.cementStart();
+                },
+                data: {
+                    newTodoText: '',
+                    search: "",
+                    vertical: "",
+                    execution: "",
+                    platform: "",
+                    format: "",
+                    projects: [{
+                        "title": "uttjut",
+                        "format": "interstitial",
+                        "description": "asdfsadf",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "doubleclick",
+                        "image": "/images/nike.png"
+                    }, {
+                        "title": "algo aqui",
+                        "format": "expandable",
+                        "description": "klklklklk",
+                        "vertical": "celphones",
+                        "execution": "banner",
+                        "platform": "inskin",
+                        "image": "/images/vans.png"
+                    }, {
+                        "title": "titulo",
+                        "format": "floating",
+                        "description": "conconcon",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "pageskin",
+                        "image": "/images/mac.png"
+                    },{
+                        "title": "nueva",
+                        "format": "floating",
+                        "description": "conconcon",
+                        "vertical": "celphones",
+                        "execution": "banner",
+                        "platform": "inskin",
+                        "image": "/images/mac.png"
+                    }, {
+                        "title": "last",
+                        "format": "interstitial",
+                        "description": "conconcon",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "pageskin",
+                        "image": "/images/mac.png"
+                    }, {
+                        "title": "nizao",
+                        "format": "floating",
+                        "description": "asdfsadf",
+                        "vertical": "celphones",
+                        "execution": "banner",
+                        "platform": "pageskin",
+                        "image": "/images/celphone.png"
+                    }]
+                },
+                methods: {
+                    abcd: function() {
+                        this.projectsList.sort(function(a, b) {
+                            return a.title > b.title;
+                        });
+                    },
+                    cementStart: function() {
+                      $("#projectCont article:first-child").addClass("child1");
+                      $("#projectCont article:nth-child(2)").addClass("child2");
+                      $("#projectCont article:nth-child(3)").addClass("child3");
+                      $("#projectCont article:nth-child(4)").addClass("child4");
+                    }
+                },
+                computed: {
+                    projectsList: function() {
+
+
+                        if (this.search === "" && this.vertical === "" && this.execution === "" && this.platform === "" && this.format === "") {
+                            this.cementStart();
+                            return this.projects;
+                        } else {
+
+                          var articles= $("#projectCont article").length;
+                            $("#projectCont article:first-child").removeClass("child1");
+                            $("#projectCont article:nth-child(2)").removeClass("child2");
+                            $("#projectCont article:nth-child(3)").removeClass("child3");
+                            $("#projectCont article:nth-child(4)").removeClass("child4");
+
+                            var navSearching = {
+                                "search": this.search,
+                                vertical: this.vertical,
+                                execution: this.execution,
+                                platform: this.platform,
+                                format: this.format
+                            };
+                            return this.projects.filter(function(project) {
+
+                                if (navSearching.search === "") {
+
+                                    return projectFilters(project, navSearching);
+                                } else if (navSearching.search != "") {
+                                    return projectMatch(project, navSearching.search);
+                                } else {
+                                    if (projectFilters(project, navSearching) === true && projectMatch(project, navSearching.search) === true) {
+
+                                        return true;
+                                    } else {
+                                        return false;
+                                    }
+                                }
+                            });
+                        }
+
+                    }
+                }
+            })
+
+            function projectFilters(project, navSearching) {
+                result = [];
+                if (navSearching.vertical != "") {
+                    result.push("vertical");
+                }
+                if (navSearching.execution != "") {
+                    result.push("execution");
+                }
+                if (navSearching.platform != "") {
+                    result.push("platform");
+                }
+                if (navSearching.format != "") {
+                    result.push("format");
+                }
+                var counter = 0;
+                for (var i = 0; i < result.length; i++) {
+
+                    if (project[result[i]] === navSearching[result[i]]) {
+                        counter++;
+                    }
+                }
+                if (counter === result.length) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            function projectMatch(project, search) {
+                var match = new RegExp(search, 'g');
+                if (match.test(project.title) === true || match.test(project.description) === true) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+        } //]]>
+</script>
