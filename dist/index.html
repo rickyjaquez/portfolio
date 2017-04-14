@@ -69,7 +69,7 @@
 </div>
 </div>
 <div id="capabilities1">
-  
+
 <div class="container-fluid">
 
   <div class="row">
@@ -145,7 +145,7 @@
 </div>
 </div>
 <div id="projects">
-  
+
 <nav id="searchNav">
   <div class="lupa">
     <label for="search_box"><img src="images/shape.svg"></label>
@@ -219,7 +219,7 @@
 <section id="projectCont">
     <project v-for="project in projectsList" v-bind:project="project"></project>
 </section>
-<script>
+<!-- <script>
 var stickyOffset = $('#projects').offset().top;
 $(window).scroll(function(){
   var sticky = $('header'),
@@ -237,7 +237,7 @@ $(window).scroll(function(){
      pro.removeClass('fixed');
    }
 });
-</script>
+</script> -->
 
 <script type="text/javascript">
     //<![CDATA[
@@ -303,7 +303,7 @@ $(window).scroll(function(){
                         "vertical": "cars",
                         "execution": "expandable",
                         "platform": "doubleclick",
-                        "image": "/images/nike.png"
+                        "image": "images/nike.png"
                     }, {
                         "title": "algo aqui",
                         "format": "expandable",
@@ -311,7 +311,7 @@ $(window).scroll(function(){
                         "vertical": "celphones",
                         "execution": "banner",
                         "platform": "inskin",
-                        "image": "/images/vans.png"
+                        "image": "images/vans.png"
                     }, {
                         "title": "titulo",
                         "format": "floating",
@@ -319,7 +319,7 @@ $(window).scroll(function(){
                         "vertical": "cars",
                         "execution": "expandable",
                         "platform": "pageskin",
-                        "image": "/images/mac.png"
+                        "image": "images/mac.png"
                     },{
                         "title": "nueva",
                         "format": "floating",
@@ -327,7 +327,7 @@ $(window).scroll(function(){
                         "vertical": "celphones",
                         "execution": "banner",
                         "platform": "inskin",
-                        "image": "/images/mac.png"
+                        "image": "images/mac.png"
                     }, {
                         "title": "last",
                         "format": "interstitial",
@@ -335,7 +335,55 @@ $(window).scroll(function(){
                         "vertical": "cars",
                         "execution": "expandable",
                         "platform": "pageskin",
-                        "image": "/images/mac.png"
+                        "image": "images/mac.png"
+                    }, {
+                        "title": "last",
+                        "format": "interstitial",
+                        "description": "conconcon",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "pageskin",
+                        "image": "images/mac.png"
+                    }, {
+                        "title": "last",
+                        "format": "interstitial",
+                        "description": "conconcon",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "pageskin",
+                        "image": "images/mac.png"
+                    }, {
+                        "title": "last",
+                        "format": "interstitial",
+                        "description": "conconcon",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "pageskin",
+                        "image": "images/mac.png"
+                    }, {
+                        "title": "last",
+                        "format": "interstitial",
+                        "description": "conconcon",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "pageskin",
+                        "image": "images/mac.png"
+                    }, {
+                        "title": "last",
+                        "format": "interstitial",
+                        "description": "conconcon",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "pageskin",
+                        "image": "images/mac.png"
+                    }, {
+                        "title": "last",
+                        "format": "interstitial",
+                        "description": "conconcon",
+                        "vertical": "cars",
+                        "execution": "expandable",
+                        "platform": "pageskin",
+                        "image": "images/mac.png"
                     }, {
                         "title": "nizao",
                         "format": "floating",
@@ -343,7 +391,7 @@ $(window).scroll(function(){
                         "vertical": "celphones",
                         "execution": "banner",
                         "platform": "pageskin",
-                        "image": "/images/celphone.png"
+                        "image": "images/celphone.png"
                     }]
                 },
                 methods: {
@@ -353,10 +401,24 @@ $(window).scroll(function(){
                         });
                     },
                     cementStart: function() {
-                      $("#projectCont article:first-child").addClass("child1");
-                      $("#projectCont article:nth-child(2)").addClass("child2");
-                      $("#projectCont article:nth-child(3)").addClass("child3");
-                      $("#projectCont article:nth-child(4)").addClass("child4");
+
+                      var project_length= $("#projectCont article").length;
+                      if(project_length > 0){
+                        var cont= parseInt(project_length / 4);
+                          for (var i=0; i < cont; i++){
+                            if(i < 2){
+                                var int = 2 * i*2;
+                                console.log(int);
+                                var data1 = int + 1, data2 = int +2, data3= int + 3, data4= int + 4;
+                                var data = ""+ data1 +" x "+ data2 + " x"+ data3 +" x "+ data4 +" x ";
+                                console.log("datos :"+ data);
+                                $("#projectCont article:nth-child("+ data1 +")").addClass("child1");
+                                $("#projectCont article:nth-child("+ data2 + ")").addClass("child2");
+                                $("#projectCont article:nth-child("+ data3 +")").addClass("child3");
+                                $("#projectCont article:nth-child("+ data4 +")").addClass("child4");
+                            }
+                          }
+                      }
                     }
                 },
                 computed: {
@@ -368,7 +430,6 @@ $(window).scroll(function(){
                             return this.projects;
                         } else {
 
-                          var articles= $("#projectCont article").length;
                             $("#projectCont article:first-child").removeClass("child1");
                             $("#projectCont article:nth-child(2)").removeClass("child2");
                             $("#projectCont article:nth-child(3)").removeClass("child3");
@@ -478,9 +539,9 @@ $(window).scroll(function(){
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script> -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 <script type="text/javascript" src="./js/app.js"></script>
 <script type="text/javascript" src="./js/projects.js"></script>
 <script src="./js/cement.min.js"></script>
