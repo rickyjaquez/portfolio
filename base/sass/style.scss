@@ -1,4 +1,5 @@
 @import "vars";
+@import "mixin";
 html, body {
   overflow-x: hidden;
 }
@@ -9,6 +10,12 @@ body {
 }
 
 #projectCont {
+  .nodata{
+    width: 140px;
+    margin: 100px auto;
+  }
+}
+#projectCont {
     max-width: 1920px;
     width: 100%;
     margin: 0 auto;
@@ -16,14 +23,17 @@ body {
 
 #projectCont > * {
     color: white;
+    transition: width 0.3s, height 0.3s, margin 0.3s;
+}
+#home,
+#capabilities2,
+#capabilities1{
+  margin-bottom: 10%;
 }
 
-#capabilities1,
-#capabilities2,
-#home,
 #projects {
-    float: left;
     margin-bottom: 5%;
+    float: left;
 }
 
 article {
@@ -59,7 +69,7 @@ article.child4 {
     height: 250px;
     width: 59.524%;
     margin-left: 1%;
-    margin-bottom: 20px;
+    margin-bottom: 1%;
     float: right;
 }
 
@@ -139,7 +149,6 @@ header {
     max-width: 1920px;
     position: relative;
     top: 50px;
-    float: left;
 
     #logo {
         float: left;
@@ -178,6 +187,9 @@ header {
                 padding-right: 50px;
             }
         }
+        .logout{
+          display: none;
+        }
 
         .login p:nth-child(2) {
             font-size: 12px;
@@ -211,7 +223,7 @@ nav {
     margin: 0 auto;
     padding-top: 4px;
     float: left;
-
+    pointer-events: none;
     .lupa {
         width: 14px;
         height: 15px;
@@ -222,6 +234,7 @@ nav {
         float: left;
         margin-left: 5%;
         padding-top: 6px;
+        pointer-events: auto;
 
         > * {
             cursor: pointer;
@@ -230,10 +243,11 @@ nav {
 
     .search {
         width: 15%;
-        height: 15px;
+        height: 26px;
         margin-left: 1%;
         float: left;
         padding-top: 4px;
+        pointer-events: auto;
 
         input {
             height: 15px;
@@ -242,6 +256,7 @@ nav {
             font-family: futura, serif;
             border: none;
             color: #4b4e53;
+            pointer-events: auto;
             background-color: transparent;
         }
     }
@@ -256,6 +271,7 @@ nav {
         background-position: right;
         color: $filter;
         margin-right: 2%;
+        pointer-events: auto;
         opacity: 0.5;
     }
     .filters {
@@ -279,12 +295,19 @@ nav {
             background-position: right;
             color: $filter;
             margin-right: 2%;
+            pointer-events: auto;
             opacity: 0.5;
         }
 
         select:nth-child(1) {
             margin-left: 1%;
         }
+    }
+    .hideFilter{
+      float: right;
+      display: none;
+      pointer-events: auto;
+      opacity: 1;
     }
 }
 
@@ -296,7 +319,7 @@ nav {
 }
 
 #projects.fixed {
-    margin-top: 330px;
+    // margin-top: 330px;
     min-height: 850px;
 }
 
@@ -387,6 +410,7 @@ nav.fixed {
         background-image: linear-gradient(233deg, #fff, #000000);
         position: absolute;
         width: 100%;
+        pointer-events: none;
     }
 
     .content {
@@ -429,7 +453,6 @@ nav.fixed {
         font-stretch: normal;
         line-height: 1.11;
         letter-spacing: -0px;
-        margin-left: 10%;
         margin-top: 20px;
 
         .line {
@@ -437,14 +460,19 @@ nav.fixed {
             height: 25px;
             background-color: #d8d8d8;
             float: left;
-            margin-top: 5px;
+            margin-top: 15px;
             margin-right: 23px;
         }
         p, h4{
           margin: 0;
         }
+        h4{
+          margin-top: 10px;
+          cursor: pointer;
+        }
     }
 }
+/********[Templates]*********/
 
 .deviceContainer {
     position: relative;
@@ -468,6 +496,7 @@ nav.fixed {
             position: relative;
             top: 179px;
             left: 79px;
+            @include bannerContent();
         }
     }
 
@@ -482,11 +511,12 @@ nav.fixed {
         display: none;
 
         .banner {
-            width: 321px;
-            height: 568px;
+            width: 375px;
+          	height: 668px;
             position: relative;
-            top: 179px;
+            top: 170px;
             left: 79px;
+            @include bannerContent();
         }
     }
 
@@ -501,21 +531,35 @@ nav.fixed {
         display: none;
 
         .banner {
-            width: 321px;
-            height: 568px;
+            width: 414px;
+          	height: 739px;
             position: relative;
-            top: 179px;
+            top: 170px;
             left: 79px;
+            @include bannerContent();
         }
     }
 }
+#desktop .banner{
+  @include bannerContent();
+}
+#desktop2 .banner{
+  @include bannerDesk();
+}
+.banner {
+  text-align: center;
+  .myAd{
+    width: 100%;
+    height: 100%;
+  }
 
+}
 .options {
     position: relative;
     margin-right: 3%;
     margin-top: 10%;
     color: #5a6770;
-    width: 142px;
+    width: 170px;
     float: right;
     font-family: futura;
     font-size: 18px;
@@ -526,6 +570,8 @@ nav.fixed {
 
     div {
         margin-bottom: 40px;
+        float: left;
+        margin-left: 20px;
 
         img {
             cursor: pointer;
@@ -575,7 +621,63 @@ nav.fixed {
         }
     }
 }
-//capabilities
+
+#desktop, #desktop2{
+  min-height: 500px;
+  background-color: #f6f6f6;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.top{
+  background-color: #c9c9c9;
+  height: 38px;
+  margin-bottom: 10px;
+}
+
+#project__description{
+  font-family: "futura-pt";
+  .close{
+    color: white;
+    opacity: 1;
+    font-weight: 100;
+    font-size: 40px;
+    font-family: "futura-pt";
+  }
+  .modal-header, .modal-footer{
+    border: none;
+  }
+  .modal-content{
+    background-color: #06294a;
+  }
+  .modal-body{
+    font-size: 18px;
+    line-height: 1.67;
+    letter-spacing: -0px;
+    color: #ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  h4{
+    font-family: "futura-pt";
+    font-weight: bold;
+    letter-spacing: -0px;
+    color: #ffffff;
+    font-size: 33px;
+  }
+  h4:after {
+    content: " ";
+    position: absolute;
+    top: 60px;
+    width: 26px;
+    height: 3px;
+    background-color: #22998a;
+    display: inline-block;
+    left: 50%;
+    margin-left: -141px;
+  }
+}
+
+/*********[Capabilities1]*******/
 
 .title {
   h1 {
@@ -646,6 +748,13 @@ nav.fixed {
         position: relative;
         line-height: normal;
         letter-spacing: -0px;
+        margin-bottom: 0;
+    }
+    span{
+      font-family: "futura-pt";
+      font-size: 20px;
+      letter-spacing: 0.7px;
+      color: #9a989a;
     }
 }
 .texthead2 {
@@ -664,13 +773,20 @@ nav.fixed {
         line-height: normal;
         letter-spacing: -0px;
         width: 320px;
+        margin-bottom: 0;
+    }
+    span{
+      font-family: "futura-pt";
+      font-size: 20px;
+      letter-spacing: 0.7px;
+      color: #9a989a;
     }
 }
 
 .texthead2 p:before {
     content: " ";
     position: absolute;
-    bottom: -5px;
+    bottom: -10px;
     width: 44px;
     height: 3px;
     background-color: #246293;
@@ -679,7 +795,7 @@ nav.fixed {
 .texthead p:before {
     content: " ";
     position: absolute;
-    bottom: -5px;
+    bottom: -40px;
     width: 44px;
     height: 3px;
     background-color: #246293;
@@ -690,7 +806,21 @@ nav.fixed {
     right: 0;
     left: inherit;
 }
-//capabilities2
+
+/********[slick]********/
+.slick-slide{
+  padding-bottom: 15px;
+}
+.slick-dots li button:before{
+  font-size: 10px;
+  color: #d8d8d8;
+  opacity: 1;
+}
+.slick-dots li.slick-active button:before{
+  opacity: 1;
+  color: #ffa700;
+}
+/*********[capabilities2]********/
 
 
 .capabilities2__title {
@@ -712,15 +842,29 @@ nav.fixed {
     color: white;
     z-index: 2;
     padding: 30px;
+    padding-right: 20px;
     max-height: 480px;
-    max-width: 450px;
+    max-width: 500px;
     min-width: 305px;
 
     h2 {
-        margin-top: 3%;
-        margin-bottom: 10px;
+        margin: 0;
     }
-    h2:before {
+    h3, h5{
+      margin: 0;
+      margin-bottom: 5px;
+      font-size: 30px;
+    }
+    h5:before {
+        content: " ";
+        position: absolute;
+        top: 110px;
+        width: 44px;
+        height: 3px;
+        background-color: #22998a;
+        display: inline-block;
+    }
+    h3:before {
         content: " ";
         position: absolute;
         top: 80px;
@@ -737,24 +881,53 @@ nav.fixed {
         font-stretch: normal;
         line-height: 1.67;
         letter-spacing: -0px;
-        margin: 30px 0;
+        img{
+          margin: 0 auto;
+          margin-bottom: 30px;
+        }
     }
-
-    button {
-        width: 146px;
-        height: 37px;
-        border-radius: 14px;
-        border: solid 2px #ffffff;
-        text-transform: uppercase;
-        background-color: transparent;
-        font-family: futura;
-        font-size: 13px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: 1.6px;
-        margin: 3% 0;
+    .first{
+      margin-top: 60px;
+    }
+    .list{
+      font-family: "futura-pt";
+      font-size: 16px;
+      font-weight: 100;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.67;
+      letter-spacing: -0px;
+      overflow-y: auto;
+      max-height: 220px;
+      width: 100%;
+      position: relative;
+      padding-right: 5px;
+      .left{
+        float: left;
+        width: 50%;
+      }
+      .right{
+        width: 50%;
+        float: right;
+      }
+    }
+    h4{
+      opacity: 0.33;
+      font-size: 20px;
+      font-family: "futura-pt";
+      font-weight: 100;
+      margin: 0;
+    }
+}
+.ps-container>.ps-scrollbar-y-rail {
+    background-color: #0f1f3a !important;
+    color: #fff;
+    opacity: 1 !important;
+    pointer-events: none;
+    width: 7px;
+    &>.ps-scrollbar-y {
+        background-color: #fff;
+        width: 5px;
     }
 }
 
@@ -856,10 +1029,156 @@ nav.fixed {
   }
 }
 
+/********[positions]*********/
+
+.positions{
+  position: fixed;
+  height: auto;
+  right: 2%;
+  top: 30%;
+  padding: 20px;
+  font-family: futura;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  text-align: right;
+  color: #9a989a;
+  width: 13px;
+  cursor: pointer;
+  opacity: 0;
+  a{
+    color: #9a989a;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  div > p{
+    width: 13px;
+  }
+  div > span{
+    display: none;
+    opacity: 0;
+  }
+  .current{
+    color: #f48f1e;
+  }
+  .current:after{
+    width: 25px;
+    height: 2px;
+    content: " ";
+    background-color: #f48f1e;
+    position: relative;
+    float: left;
+    top: -13px;
+    left: 30px;
+    transition: left 0.5s;
+  }
+}
+
+/********[Footer]*********/
+#footer{
+  width: 100%;
+  max-width:1920px;
+  margin: 0 auto;
+  min-height: 770px;
+  background-color: #212e3c;
+  float: left;
+  hr{
+    margin-top: 110px;
+    color:#d8d8d8;
+    opacity: 0.22;
+  }
+}
+.footer__title {
+  margin-top: 110px;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+    h2{
+      font-family: Futura;
+      font-size: 80px;
+      font-weight: 800;
+      line-height: 1.28;
+      letter-spacing: -0.6px;
+      color: #ffa700;
+      text-transform: uppercase;
+      margin: 0;
+    }
+}
+.footer__form{
+  margin-top: 110px;
+  input{
+    width: 95%;
+  	height: 54px;
+  	border-radius: 10px;
+  	background-color: #ffffff;
+    border:none;
+    color: #4a4f54;
+    font-family: "futura-pt";
+    font-size: 22px;
+    letter-spacing: 0.8px;
+    padding-left: 5%;
+  }
+  label{
+    font-family: "futura-pt";
+    font-size: 22px;
+    letter-spacing: 0.8px;
+    color:white;
+    padding-left: 5%;
+    font-weight: 100;
+  }
+  button{
+    border-radius: 31px;
+    background-color: #ffa700;
+    width: 153px;
+    height: 43px;
+    border:none;
+    color:white;
+    margin-top: 15px;
+  }
+}
+.footer__copy{
+  width: 90%;
+  max-width: 1920px;
+  font-size: 18px;
+  font-family: "futura-pt";
+  font-weight: 100px;
+  line-height: 1.27;
+  letter-spacing: 0.8px;
+  text-align: center;
+  color: #4a4f54;
+  margin: 0 auto;
+  padding-bottom: 100px
+}
+.footer__message{
+  max-width: 440px;
+  display: none;
+  opacity: 0;
+  margin-top: 110px;
+  margin-left: auto;
+  margin-right: auto;
+  h3{
+    font-family: "futura-pt";
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 1.18;
+    letter-spacing: -0.4px;
+    color: #ffffff;
+  }
+  .line{
+    width: 53px;
+    height: 10px;
+    background-color: #ffa700;
+    margin-top: 20px;
+  }
+}
 @media only screen and (max-width: 1200px) {
     .homeimage {
         width: 50%;
         height: 480px;
+    }
+    #desktop2 .banner .filler1{
+      width: 62%;
     }
 }
 @media only screen and (max-width: 992px) {
@@ -881,6 +1200,15 @@ nav.fixed {
       margin-left: -36%;
       bottom: 100px;
     }
+    .options{
+      margin-top: -100px;
+      margin-right: 12% !important;
+      width: 540px;
+      transition: margin 0.5s;
+    }
+    .deviceContainer{
+      margin-top: -15%;
+    }
 }
 @media only screen and (max-width: 768px) {
     .title {
@@ -888,7 +1216,6 @@ nav.fixed {
 
         }
     }
-
     .texthead, .texthead2 {
       padding-left: 15px;
     }
@@ -902,12 +1229,8 @@ nav.fixed {
         padding-left: 20%;
         padding-right: 20%;
 
-        h2 {
+        h2, h3, h4, h5 {
             text-align: center;
-        }
-
-        h2:before {
-            top: 125px;
         }
     }
 
@@ -928,9 +1251,15 @@ nav.fixed {
         font-size: 7vw;
       }
     }
-    #projects.fixed {
-        margin-top: 100px;
-    }
+  .headerBlue{
+      h1 {
+        font-size: 9vw;
+      }
+
+      h2 {
+        font-size: 3.5vw;
+      }
+  }
 }
 @media only screen and (max-width: 560px) {
     .capabilities2__text {
@@ -949,6 +1278,23 @@ nav.fixed {
     .home__stage1{
       bottom: 60px;
     }
+    nav{
+      opacity: 1;
+      .hideFilter{
+        display: block;
+        margin-right: 3%;
+        .dropdown .dropdown-menu{
+          text-align: center;
+          padding: 10px;
+        }
+      }
+      .filters{
+        display: none;
+      }
+      .search{
+        width: 30%;
+      }
+    }
 }
 @media only screen and (max-width: 400px) {
     .paragraph p{
@@ -956,12 +1302,6 @@ nav.fixed {
     }
     .texthead2 p{
       font-size: 30px;
-    }
-    .capabilities2__text h2:before{
-      top: 115px;
-    }
-    .capabilities2__text h2{
-      width: 90%;
     }
     .capabilities2__text {
       padding: 5%;
@@ -988,5 +1328,9 @@ nav.fixed {
         width: 25px;
         height: 30px;
       }
+    }
+    .headerBlue .right{
+      width: 25px;
+      height: 30px;
     }
 }

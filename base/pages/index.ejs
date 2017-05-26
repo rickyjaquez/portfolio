@@ -9,10 +9,46 @@
 <div id="capabilities2">
   <%- include('capabilities2') -%>
 </div>
-<div id="projects">
-  <%- include('projects') -%>
-</div>
 
 <%- include('./partials/loginmodal') -%>
 
 <%- include('./partials/footer') -%>
+<div id="projects">
+  <%- include('projects') -%>
+</div>
+<div id="footer">
+  <%- include('./partials/getin') -%>
+</div>
+<div class="positions hidden-xs">
+    <div class="positions__what">
+        <p>1</p>
+        <span>What we do?</span>
+    </div>
+    <div class="positions__how">
+        <p>2</p>
+        <span>How we do it?</span>
+    </div>
+    <div class="positions__work">
+        <p>3</p>
+        <span>Our work</span>
+    </div>
+</div>
+<script>
+var stickyOffset = $('#projects').offset().top - 200;
+$(window).scroll(function(){
+  var sticky = $('header'),
+      scroll = $(window).scrollTop(),
+      pro= $("#projects")
+      nav= $("#projects > nav");
+
+  if (scroll >= stickyOffset){
+    sticky.addClass('fixed');
+    nav.addClass('fixed');
+    pro.addClass('fixed');
+  }else{
+     sticky.removeClass('fixed');
+     nav.removeClass('fixed');
+     pro.removeClass('fixed');
+   }
+});
+</script>

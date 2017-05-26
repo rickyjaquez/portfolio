@@ -1,0 +1,111 @@
+@mixin bannerContent(){
+  padding-bottom: 25px;
+  padding-top: 15px;
+  overflow-y: auto;
+  background-color: #f6f6f6;
+  .b300x50{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 300px;
+    height: 50px;
+    background-color:#d8d8d8;
+  }
+  .b300x250{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 300px;
+    height: 250px;
+    background-color:#d8d8d8;
+  }
+  .b160x600{
+    margin-left: 1px;
+    margin-right: 2%;
+    margin-top: 15px;
+    width: 160px;
+    height: 600px;
+    background-color:#d8d8d8;
+    float: right;
+  }
+  .filler1{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    img{
+      width: 100%;
+    }
+  }
+  .filler2{
+    width: 35%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 15px;
+    float: left;
+    img{
+      width: 100%;
+    }
+  }
+}
+@mixin bannerDesk(){
+  padding-bottom: 25px;
+  padding-top: 15px;
+  overflow-y: auto;
+  background-color: #f6f6f6;
+  .b728x90{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 728px;
+    height: 90px;
+    background-color:#d8d8d8;
+  }
+  .b300x250{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 30px;
+    width: 300px;
+    height: 250px;
+    background-color:#d8d8d8;
+    float: left;
+  }
+  .b160x600{
+    margin-left: 1px;
+    margin-right: 2%;
+    margin-top: 30px;
+    width: 160px;
+    height: 600px;
+    background-color:#d8d8d8;
+    float: right;
+  }
+  .filler1{
+    width: 50%;
+    margin-left: 0;
+    margin-right: 2%;
+    margin-top: 30px;
+    float: left;
+    img{
+      width: 100%;
+    }
+  }
+  .filler2{
+    width: 58%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 15px;
+    float: left;
+    img{
+      width: 100%;
+    }
+  }
+  .square {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 15px;
+    float: left;
+    width: 194px;
+    height: 100px;
+    background-color: #d8d8d8;
+  }
+}
